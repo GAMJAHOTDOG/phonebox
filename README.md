@@ -46,6 +46,24 @@ Windows, Linux and macOS. No root, PhoneBox account or cloud service required.</
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT license"></a>
 </p>
 
+## White theme for e-ink displays (this fork)
+
+This is a fork of [ersinkoc/phonebox](https://github.com/ersinkoc/phonebox) that adds a pure-white **White** theme, made for e-ink readers and phones (Onyx BOOX, etc.) where the built-in dark themes leave grey smudges and ghosting.
+
+- **Pure white background** (`#fff`) with pure black text (`#000`) across the whole panel, so e-ink stays clean and readable.
+- The theme is a first-class option: open **Settings → Appearance → Theme** and pick **White**. It is translated into all 23 languages.
+- Everything else is unchanged from upstream. The desktop agent, widgets and templates work exactly the same.
+
+### Get the APK
+
+Download the latest debug APK from the **Actions** tab (artifact `phonebox-apk`), or build it yourself:
+
+```sh
+cd android && ./gradlew assembleDebug
+```
+
+The APK is in `android/app/build/outputs/apk/debug/app-debug.apk`. Install it on your Android device (allow "Install unknown apps" if asked), then pick the **White** theme in Settings.
+
 <p align="center"><img src="docs/hero-0.6.png" width="900" alt="PhoneBox on three phones showing automation, home and planner pages"><br>
 <sub>Example layouts with demo data.</sub></p>
 
