@@ -2217,7 +2217,8 @@ export function applyDisplay() {
   const accent = hexToRgb(d.accent);
   const before = DEFAULT_AMBIENT;
   DEFAULT_AMBIENT = accent || '45, 212, 191';
-  document.documentElement.style.setProperty('--accent', `rgb(${DEFAULT_AMBIENT})`);
+  // E-ink (light theme): force a black accent so highlights stay readable in grayscale.
+  document.documentElement.style.setProperty('--accent', document.body.dataset.theme === 'light' ? 'rgb(0, 0, 0)' : `rgb(${DEFAULT_AMBIENT})`);
   artTint = d.artTint !== false;
   if (before !== DEFAULT_AMBIENT || !artTint) setAmbient(artTint ? currentArtColor : null);
   if (langChanged) { buildLayout(); renderApproval(); }
@@ -2477,6 +2478,13 @@ const PULSING = '.sess.busy, .sess.shell, .sess.waiting, .obs-pill.on, .w-onair.
 const pulseShown = (el) => { if (el.closest('.stack-item:not(.active)')) return false; const r = el.getBoundingClientRect(); return r.width > 0 && r.height > 0 && r.right > 0 && r.left < innerWidth && r.bottom > 0 && r.top < innerHeight; };
 let beatN = 0;
 function beat() {
+  // E-ink (light theme): no pulsing. Status dots stay solid so the panel does
+  // not redraw every 250 ms and leave ghosts on e-ink. The beat classes are
+  // removed so a dot never sticks half-dimmed.
+  if (document.body.dataset.theme === 'light') {
+    document.documentElement.classList.remove('beat-2', 'beat-3', 'beat-4');
+    return;
+  }
   if (![...document.querySelectorAll(PULSING)].some(pulseShown)) return;
   beatN++;
   const cl = document.documentElement.classList;

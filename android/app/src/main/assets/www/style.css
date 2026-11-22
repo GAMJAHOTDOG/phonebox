@@ -28,6 +28,20 @@ body[data-theme="graphite"] { --bg: #16181c; --card: rgba(255, 255, 255, 0.06); 
 body[data-theme="graphite"]::before { opacity: .45; }
 body[data-theme="light"] { --bg: #fff; --card: #fff; --card-hi: #f2f2f2; --line: rgba(0, 0, 0, 0.14); --text: #000; --muted: #555; --dim: #888; color-scheme: light; }
 body[data-theme="light"]::before { display: none; }
+/* E-ink: the pulsing stops (see beat() in main.js) and every coloured status
+   signal becomes solid black, so it stays readable in grayscale and never
+   leaves a glow smudge. Off means hollow. */
+body[data-theme="light"] .sess.busy .st,
+body[data-theme="light"] .sess.shell .st,
+body[data-theme="light"] .sess.waiting .st { background: #000; box-shadow: none; }
+body[data-theme="light"] .sess.waiting { border-color: #000; background: transparent; }
+body[data-theme="light"] .sess.waiting .ds,
+body[data-theme="light"] .sess.busy .ds { color: #000; }
+body[data-theme="light"] .obs-pill.on .obs-led { background: #000; box-shadow: none; }
+body[data-theme="light"] .w-onair.on .oa-sign { background: #000; border-color: #000; box-shadow: none; }
+body[data-theme="light"] .dc-mic.on { background: #000; }
+body[data-theme="light"] .dot.on { background: #000; box-shadow: none; }
+body[data-theme="light"] .dot.off { background: #fff; box-shadow: inset 0 0 0 2px #000; }
 #dots i.on { background: color-mix(in srgb, var(--accent, #fff) 55%, white); }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
