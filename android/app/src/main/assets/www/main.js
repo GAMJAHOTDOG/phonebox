@@ -2498,7 +2498,16 @@ applyDisplay();
 tick();
 loadWeather();
 setInterval(loadWeather, 15 * 60_000);
-setInterval(() => { if (!nightOn && !idle()) { emit('fast'); beat(); } }, 250);
+let fastTickN = 0;
+setInterval(() => {
+  if (!nightOn && !idle()) {
+    // E-ink (light theme): refresh fast widgets every 5 s instead of every
+    // 250 ms, so the panel does not redraw constantly and ghost on e-ink.
+    fastTickN++;
+    if (document.body.dataset.theme !== 'light' || fastTickN % 20 === 1) emit('fast');
+    beat();
+  }
+}, 250);
 setInterval(() => { if (online && !idle() && anyNeeds('quotas')) loadQuotas(); }, 30_000);
 setInterval(() => { if (online && !idle() && anyNeeds('calendar')) loadCalendar(); }, 120_000);
 setInterval(() => { if (online && !idle() && anyNeeds('work') && !streaming()) loadWork(); }, 3000);

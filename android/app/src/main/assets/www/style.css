@@ -26,8 +26,21 @@ body[data-theme="midnight"] { --bg: #060a17; --card: rgba(120, 150, 255, 0.07); 
 body[data-theme="warm"] { --bg: #0e0907; --card: rgba(255, 196, 150, 0.06); --card-hi: rgba(255, 196, 150, 0.1); --line: rgba(255, 196, 150, 0.1); --text: #f6ede5; --muted: #a8968a; --dim: #6f6259; }
 body[data-theme="graphite"] { --bg: #16181c; --card: rgba(255, 255, 255, 0.06); --card-hi: rgba(255, 255, 255, 0.09); --line: rgba(255, 255, 255, 0.1); }
 body[data-theme="graphite"]::before { opacity: .45; }
-body[data-theme="light"] { --bg: #fff; --card: #fff; --card-hi: #f2f2f2; --line: rgba(0, 0, 0, 0.14); --text: #000; --muted: #555; --dim: #888; color-scheme: light; }
+body[data-theme="light"] { --bg: #fff; --card: #fff; --card-hi: #e6e6e6; --line: rgba(0, 0, 0, 0.35); --text: #000; --muted: #333; --dim: #666; color-scheme: light; }
 body[data-theme="light"]::before { display: none; }
+/* E-ink: no transitions or animations at all, so nothing fades, slides or
+   spins while the slow e-ink panel redraws. State changes are instant. */
+body[data-theme="light"] *, body[data-theme="light"] *::before, body[data-theme="light"] *::after { transition: none !important; animation: none !important; }
+/* E-ink: thin display numbers become normal weight so strokes stay legible. */
+body[data-theme="light"] .clock,
+body[data-theme="light"] .wx-temp,
+body[data-theme="light"] .wc-t,
+body[data-theme="light"] .cd-v,
+body[data-theme="light"] .sw-t,
+body[data-theme="light"] .ct-n,
+body[data-theme="light"] .br-c,
+body[data-theme="light"] .wc-main,
+body[data-theme="light"] #nClock { font-weight: 400; }
 /* E-ink: the pulsing stops (see beat() in main.js) and every coloured status
    signal becomes solid black, so it stays readable in grayscale and never
    leaves a glow smudge. Off means hollow. */
