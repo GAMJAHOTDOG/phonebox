@@ -33,7 +33,7 @@ USB 또는 Wi-Fi로 연결해 PC 상태, AI 코딩 세션, 음악을 확인하�
 
 <p align="center">
   <a href="https://ersinkoc.github.io/phonebox/"><b>라이브 데모를 시도해 보세요</b></a> ·
-  <a href="https://github.com/ersinkoc/phonebox/releases/latest"><b>다운로드</b></a>
+  <a href="https://github.com/GAMJAHOTDOG/phonebox/releases/latest"><b>다운로드</b></a>
 </p>
 
 <p align="center"><img src="hero-0.6.png" width="900" alt="PhoneBox 3개의 Android 전화기에서 자동화, 홈 및 플래너 페이지를 보여주는 모습"></p>
