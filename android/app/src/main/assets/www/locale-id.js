@@ -350,6 +350,7 @@ window.PhoneBoxLocaleData = Object.assign(window.PhoneBoxLocaleData || {}, {
       "s.display.theme.midnight": "Biru tengah malam",
       "s.display.theme.warm": "Panas",
       "s.display.theme.graphite": "Grafit",
+      "s.display.theme.light": "Putih",
       "s.display.accent": "Warna aksen",
       "s.display.artTint": "Warna latar belakang dengan ilustrasi album",
       "s.display.orientation": "Orientasi",
