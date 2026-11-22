@@ -52,7 +52,8 @@ This is a fork of [ersinkoc/phonebox](https://github.com/ersinkoc/phonebox) that
 
 - **Pure white background** (`#fff`) with pure black text (`#000`) across the whole panel, so e-ink stays clean and readable.
 - **No blinking in the White theme.** Status dots (sessions, OBS, on-air, mic) stay solid instead of pulsing every 250 ms, so the panel does not redraw constantly and leave ghosts on e-ink.
-- **Colours adapted for grayscale.** Status signals become solid black with no glow; a status dot is solid black when on and hollow when off, and the accent is black, so everything stays readable without colour.
+- **No motion in the White theme.** All transitions and animations are off, so nothing fades, slides or spins while the slow e-ink panel redraws. Fast widgets refresh every 5 seconds instead of every 250 ms.
+- **Colours and text adapted for grayscale.** Status signals become solid black with no glow; a status dot is solid black when on and hollow when off, and the accent is black. Secondary text, borders and highlights are darker, and thin display numbers use normal weight, so everything stays readable without colour.
 - The theme is a first-class option: open **Settings → Appearance → Theme** and pick **White**. It is translated into all 23 languages.
 - Everything else is unchanged from upstream. The desktop agent, widgets and templates work exactly the same.
 
