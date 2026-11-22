@@ -51,6 +51,8 @@ Windows, Linux and macOS. No root, PhoneBox account or cloud service required.</
 This is a fork of [ersinkoc/phonebox](https://github.com/ersinkoc/phonebox) that adds a pure-white **White** theme, made for e-ink readers and phones (Onyx BOOX, etc.) where the built-in dark themes leave grey smudges and ghosting.
 
 - **Pure white background** (`#fff`) with pure black text (`#000`) across the whole panel, so e-ink stays clean and readable.
+- **No blinking in the White theme.** Status dots (sessions, OBS, on-air, mic) stay solid instead of pulsing every 250 ms, so the panel does not redraw constantly and leave ghosts on e-ink.
+- **Colours adapted for grayscale.** Status signals become solid black with no glow; a status dot is solid black when on and hollow when off, and the accent is black, so everything stays readable without colour.
 - The theme is a first-class option: open **Settings → Appearance → Theme** and pick **White**. It is translated into all 23 languages.
 - Everything else is unchanged from upstream. The desktop agent, widgets and templates work exactly the same.
 
